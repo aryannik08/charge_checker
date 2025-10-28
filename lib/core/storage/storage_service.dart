@@ -4,6 +4,7 @@ class StorageService {
   static const String _boxName = 'app_storage';
   static const String keyIsDark = 'is_dark';
   static const String keyThemeMode = 'theme_mode';
+  static const String keyChargeNumber = 'charge_number';
 
   final GetStorage _box = GetStorage(_boxName);
 
@@ -23,4 +24,8 @@ class StorageService {
   String get themeMode => _box.read<String>(keyThemeMode) ?? 'system';
 
   set themeMode(String value) => _box.write(keyThemeMode, value);
+
+  int get chargeNumber => _box.read<int>(keyChargeNumber) ?? 80;
+
+  set chargeNumber(int value) => _box.write(keyChargeNumber, value);
 }
